@@ -2,10 +2,9 @@
 <model documentVersion="1.0" lastSavedToolsVersion="14903" minimumToolsVersion="Automatic" sourceLanguage="Swift" systemVersion="18G87" type="com.apple.IDECoreDataModeler.DataModel" userDefinedModelVersionIdentifier="">
 
   <elements>
-    <element height="165" name="Pictures" positionX="200" positionY="100" width="150"/>
+    <element height="285" name="Pictures" positionX="200" positionY="100" width="150"/>
     <element height="225" name="Incidents" positionX="400" positionY="100" width="150"/>
-    <element height="255" name="Customers" positionX="600" positionY="100" width="150"/>
-    <element height="135" name="Sales" positionX="800" positionY="100" width="150"/>
+    <element height="240" name="Customers" positionX="600" positionY="100" width="150"/>
   </elements>
 
   <entity codeGenerationType="class" name="Pictures" representedClassName="Pictures" syncable="YES">
@@ -47,6 +46,47 @@
     <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="pictures" maxCount="1" name="incident" optional="YES" syncable="YES">
       <userInfo>
         <entry key="expand" value="ID,Title,Type,Status,Note,Picture,CustomerID,Description"/>
+      </userInfo>
+    </relationship>
+    <attribute attributeType="Integer 32" indexed="NO" name="customerID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="CustomerID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="description_" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Description"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Pictures" inverseEntity="Pictures" inverseName="incident" maxCount="1" name="pictures" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+    <attribute attributeType="Integer 32" indexed="NO" name="salesID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="SalesID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="housePicture" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="HousePicture"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="moreInfo" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="MoreInfo"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="customer" maxCount="1" name="incidents" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+    <relationship deletionRule="Nullify" destinationEntity="Customers" inverseEntity="Customers" inverseName="incidents" maxCount="1" name="customer" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
       </userInfo>
     </relationship>
   </entity>
@@ -107,7 +147,7 @@
         <entry key="expand" value="ID,Name,Address,Type,Status,Date,Signature,Notes,SalesID,HousePicture,MoreInfo"/>
       </userInfo>
     </relationship>
-    <relationship deletionRule="Nullify" destinationEntity="Pictures" inverseEntity="Pictures" inverseName="incident" name="pictures" optional="YES" syncable="YES" toMany="YES">
+    <relationship deletionRule="Nullify" destinationEntity="Pictures" inverseEntity="Pictures" inverseName="incident" maxCount="1" name="pictures" optional="YES" syncable="YES">
       <userInfo>
         <entry key="expand" value="ID"/>
       </userInfo>
@@ -177,45 +217,7 @@
         <entry key="keyMapping" value="MoreInfo"/>
       </userInfo>
     </attribute>
-    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="customer" name="incidents" optional="YES" syncable="YES" toMany="YES">
-      <userInfo>
-        <entry key="expand" value="ID"/>
-      </userInfo>
-    </relationship>
-    <relationship deletionRule="Nullify" destinationEntity="Sales" inverseEntity="Sales" inverseName="customers" maxCount="1" name="sale" optional="YES" syncable="YES">
-      <userInfo>
-        <entry key="expand" value="ID,FirstName,LastName,Email"/>
-      </userInfo>
-    </relationship>
-  </entity>
-
-  <entity codeGenerationType="class" name="Sales" representedClassName="Sales" syncable="YES">
-    <userInfo>
-      <entry key="slave" value="Customers"/>
-      <entry key="globalStamp" value="YES"/>
-      <entry key="primaryKey" value="ID"/>
-    </userInfo>
-    <attribute attributeType="Integer 32" indexed="NO" name="iD" optional="YES" syncable="YES" usesScalarValueType="YES">
-      <userInfo>
-        <entry key="keyMapping" value="ID"/>
-      </userInfo>
-    </attribute>
-    <attribute attributeType="String" indexed="NO" name="firstName" optional="YES" syncable="YES">
-      <userInfo>
-        <entry key="keyMapping" value="FirstName"/>
-      </userInfo>
-    </attribute>
-    <attribute attributeType="String" indexed="NO" name="lastName" optional="YES" syncable="YES">
-      <userInfo>
-        <entry key="keyMapping" value="LastName"/>
-      </userInfo>
-    </attribute>
-    <attribute attributeType="String" indexed="NO" name="email" optional="YES" syncable="YES">
-      <userInfo>
-        <entry key="keyMapping" value="Email"/>
-      </userInfo>
-    </attribute>
-    <relationship deletionRule="Nullify" destinationEntity="Customers" inverseEntity="Customers" inverseName="sale" name="customers" optional="YES" syncable="YES" toMany="YES">
+    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="customer" maxCount="1" name="incidents" optional="YES" syncable="YES">
       <userInfo>
         <entry key="expand" value="ID"/>
       </userInfo>
