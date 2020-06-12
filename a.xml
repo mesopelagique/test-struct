@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<model documentVersion="1.0" lastSavedToolsVersion="14903" minimumToolsVersion="Automatic" sourceLanguage="Swift" systemVersion="18G87" type="com.apple.IDECoreDataModeler.DataModel" userDefinedModelVersionIdentifier="">
+
+  <elements>
+    <element height="285" name="Pictures" positionX="200" positionY="100" width="150"/>
+    <element height="225" name="Incidents" positionX="400" positionY="100" width="150"/>
+    <element height="240" name="Customers" positionX="600" positionY="100" width="150"/>
+  </elements>
+
+  <entity codeGenerationType="class" name="Pictures" representedClassName="Pictures" syncable="YES">
+    <userInfo>
+      <entry key="globalStamp" value="YES"/>
+      <entry key="primaryKey" value="ID"/>
+    </userInfo>
+    <attribute attributeType="Integer 32" indexed="NO" name="iD" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="ID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="title" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Title"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Date" indexed="NO" name="date" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Date"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="picture" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="Picture"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="notes" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Notes"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Integer 32" indexed="NO" name="incidentID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="IncidentID"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="pictures" maxCount="1" name="incident" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID,Title,Type,Status,Note,Picture,CustomerID,Description"/>
+      </userInfo>
+    </relationship>
+    <attribute attributeType="Integer 32" indexed="NO" name="customerID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="CustomerID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="description_" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Description"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Pictures" inverseEntity="Pictures" inverseName="incident" maxCount="1" name="pictures" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+    <attribute attributeType="Integer 32" indexed="NO" name="salesID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="SalesID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="housePicture" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="HousePicture"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="moreInfo" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="MoreInfo"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="customer" maxCount="1" name="incidents" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+    <relationship deletionRule="Nullify" destinationEntity="Customers" inverseEntity="Customers" inverseName="incidents" maxCount="1" name="customer" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+  </entity>
+
+  <entity codeGenerationType="class" name="Incidents" representedClassName="Incidents" syncable="YES">
+    <userInfo>
+      <entry key="globalStamp" value="YES"/>
+      <entry key="primaryKey" value="ID"/>
+    </userInfo>
+    <attribute attributeType="Integer 32" indexed="NO" name="iD" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="ID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="title" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Title"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="type" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Type"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Boolean" indexed="NO" name="status" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Status"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="note" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Note"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="picture" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="Picture"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Integer 32" indexed="NO" name="customerID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="CustomerID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="description_" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Description"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Date" indexed="NO" name="date" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Date"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Customers" inverseEntity="Customers" inverseName="incidents" maxCount="1" name="customer" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID,Name,Address,Type,Status,Date,Signature,Notes,SalesID,HousePicture,MoreInfo"/>
+      </userInfo>
+    </relationship>
+    <relationship deletionRule="Nullify" destinationEntity="Pictures" inverseEntity="Pictures" inverseName="incident" maxCount="1" name="pictures" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+  </entity>
+
+  <entity codeGenerationType="class" name="Customers" representedClassName="Customers" syncable="YES">
+    <userInfo>
+      <entry key="globalStamp" value="YES"/>
+      <entry key="primaryKey" value="ID"/>
+      <entry key="filter" value="sale.Email = :email"/>
+    </userInfo>
+    <attribute attributeType="Integer 32" indexed="NO" name="iD" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="ID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="name" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Name"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="address" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Address"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="type" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Type"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Boolean" indexed="NO" name="status" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Status"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Date" indexed="NO" name="date" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Date"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="signature" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="Signature"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="notes" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="Notes"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Integer 32" indexed="NO" name="salesID" optional="YES" syncable="YES" usesScalarValueType="YES">
+      <userInfo>
+        <entry key="keyMapping" value="SalesID"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="Transformable" indexed="NO" name="housePicture" optional="YES" syncable="YES" valueTransformerName="NSSecureUnarchiveFromData">
+      <userInfo>
+        <entry key="keyMapping" value="HousePicture"/>
+        <entry key="image" value="YES"/>
+      </userInfo>
+    </attribute>
+    <attribute attributeType="String" indexed="NO" name="moreInfo" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="keyMapping" value="MoreInfo"/>
+      </userInfo>
+    </attribute>
+    <relationship deletionRule="Nullify" destinationEntity="Incidents" inverseEntity="Incidents" inverseName="customer" maxCount="1" name="incidents" optional="YES" syncable="YES">
+      <userInfo>
+        <entry key="expand" value="ID"/>
+      </userInfo>
+    </relationship>
+  </entity>
+
+</model>
